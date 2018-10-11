@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RuckusAlexaLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:RuckusAlexaLibrary.Intent">
+            <summary>
+            The intent object that represents what the user wants.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.Intent.name">
+            <summary>
+            A string representing the name of the intent.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.Intent.slots">
+            <summary>
+            A map of key-value pairs that further describes what
+            the user meant based on a predefined intent schema.
+            </summary>
+        </member>
+        <member name="T:RuckusAlexaLibrary.RequestBundle">
+            <summary>
+            The request bundle object that is sent to the Alexa service. Bundled to encapsulate request functionality.
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.RequestBundle.#ctor">
+            <summary>
+            Initializes a new RequestBundle object
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.RequestBundle.#ctor(System.String,System.String,System.DateTime,RuckusAlexaLibrary.Intent,System.String,System.String,System.String,RuckusAlexaLibrary.ConnectionResponse_Status,RuckusAlexaLibrary.ConnectionResponse_Payload,System.String,System.String)">
+            <summary>
+            /// Initializes a new RequestBundle object
+            </summary>
+            <param name="type"></param>
+            <param name="requestId"></param>
+            <param name="timestamp"></param>
+            <param name="intent"></param>
+            <param name="reason"></param>
+            <param name="dialogState"></param>
+            <param name="name"></param>
+            <param name="status"></param>
+            <param name="payload"></param>
+            <param name="token"></param>
+            <param name="confirmationStatus"></param>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.Type">
+            <summary>
+            Describes the request type
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.RequestId">
+            <summary>
+            Represents a unique identifier for the specific request.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.Timestamp">
+            <summary>
+            Provides the date and time when Alexa sent the request as an ISO 8601 formatted string. Used to verify the request when hosting your skill as a web service.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.Intent">
+            <summary>
+            An object that represents what the user wants.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.Reason">
+            <summary>
+            Describes why the session ended.
+            </summary>
+            <remarks>
+            Only present in a SessionEndedRequest
+            </remarks>
+            <returns>
+            USER_INITIATED
+            ERROR
+            EXCEEDED_MAX_REPROMPTS
+            </returns>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.DialogState">
+            <summary>
+            Enumeration indicating the status of the multi-turn dialog. This property is included if the skill meets the requirements to use the Dialog directives Possible values"
+            </summary>
+            <returns>
+            STARTED
+            IN_PROGRESS
+            COMPLETED        
+            </returns>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.name">
+            <summary>
+            A string representing the name of the intent
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.status">
+            <summary>
+            Provides details of the HTTP status	
+            </summary>
+            <remarks>
+            Used for In Skill Purchasing, to resume the skill after the purchase flow.
+            </remarks>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.payload">
+            <summary>
+            Contains details for the specified action. For a purchase request, this includes the InSkillProduct property with a product ID.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.token">
+            <summary>
+            A token to identify this message exchange and store skill information. The token is not used by Alexa, but is returned in the resulting Connections.Response. 
+            You provide this token in a format that makes sense for the skill.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.RequestBundle.confirmationStatus">
+            <summary>
+            Dialog status used to confirm fields that require confirmation as laid out in your Dialog Model
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.RequestBundle.GetRequestType">
+            <summary>
+            Returns type of request
+            </summary>
+            <returns>IntentRequest, LaunchRequest, SessionEndedRequest, Connections.Response</returns>
+        </member>
+        <member name="T:RuckusAlexaLibrary.Response">
+            <summary>
+            The response.
+            </summary>
+            <remarks>
+            This is a remark.
+            </remarks>
+        </member>
+        <member name="T:RuckusAlexaLibrary.SkillRequest">
+            <summary>
+            The request object container sent to the Alexa service.
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.SkillRequest.#ctor">
+            <summary>
+            Initializes a new SkillRequest object
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.SkillRequest.#ctor(System.String,RuckusAlexaLibrary.Session,RuckusAlexaLibrary.RequestBundle,RuckusAlexaLibrary.Context)">
+            <summary>
+            Initializes a new SkillRequest object with parameters
+            </summary>
+            <param name="version"></param>
+            <param name="session"></param>
+            <param name="request"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:RuckusAlexaLibrary.SkillRequest.Version">
+            <summary>
+            The version specifier for the request with the value defined as: "1.0"
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.SkillRequest.Session">
+            <summary>
+            The session object provides additional context associated with the request.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.SkillRequest.Request">
+            <summary>
+            Contains the request object, interfaces for Launch Request, Intent Request, and Session Ended Request, 
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.SkillRequest.Context">
+            <summary>
+            The context object provides your skill with information about the current state of the Alexa service 
+            and device at the time the request is sent to your service. This is included on all requests. For 
+            requests sent in the context of a session (LaunchRequest and IntentRequest), the context object 
+            duplicates the user and application information that is also available in the session.
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.SkillRequest.GetRequestType">
+            <summary>
+            Returns type of request
+            </summary>
+            <returns>Type of ILaunchRequest, IIntentRequest, or ISessionEndedRequest</returns>
+        </member>
+        <member name="T:RuckusAlexaLibrary.SkillResponse">
+            <summary>
+            The response object container returned from the Alexa service.
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.SkillResponse.#ctor">
+            <summary>
+            Initializes a new SkillResponse object
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.SkillResponse.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},RuckusAlexaLibrary.Response)">
+            <summary>
+            Initializes a new SkillResponse object with parameters
+            </summary>
+            <param name="version"></param>
+            <param name="sessionAttributes"></param>
+            <param name="response"></param>
+        </member>
+        <member name="P:RuckusAlexaLibrary.SkillResponse.Version">
+            <summary>
+            The version specifier for the response with the value to be defined as: "1.0"
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.SkillResponse.SessionAttributes">
+            <summary>
+            A map of key-value pairs to persist in the session. The key is a string that represents the name of the attribute.Type: string. 
+            The value is an object that represents the value of the attribute. Type: object. Session attributes are ignored if included 
+            in a response to an AudioPlayer or PlaybackController request. 
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.SkillResponse.Response">
+            <summary>
+            A response object that defines what to render to the user and whether to end the current session.
+            </summary>
+        </member>
+        <member name="T:RuckusAlexaLibrary.Slot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RuckusAlexaLibrary.Slot.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Newtonsoft.Json.Bson.BsonWriter"/> class.
+            </summary>
+        </member>
+        <member name="P:RuckusAlexaLibrary.Slot.Name">
+            <summary>
+            A string that represents the name of the slot.
+            </summary>
+        </member>
+    </members>
+</doc>
